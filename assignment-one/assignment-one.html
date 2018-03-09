@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Repository</title>
+	<link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+	<h2>List View or Grid View</h2>
+	<p>Click on a button to choose list view or grid view.</p>
+	<ul class="list_item">
+		<li>
+			<a href="javascript:void(0)" class="list_link" onclick='mylist()'>
+				<span class="icon">&#9776;</span>
+				List
+			</a>
+		</li>
+		<li>
+			<a href="javascript:void(0)" class="grid_link" onclick='mygrid()'>
+				<img src="img/grid.png" alt="" class="img_responsive">
+				Grid
+			</a>
+		</li>
+	</ul>
+
+	<div class="clr">
+	  <div class="column" style="background-color:#aaa;">
+	    <h2>Column 1</h2>
+	    <p>Some text..</p>
+	  </div>
+	  <div class="column" style="background-color:#bbb;">
+	    <h2>Column 2</h2>
+	    <p>Some text..</p>
+	  </div>
+	</div>
+	<div class="clr">
+	  <div class="column" style="background-color:#ccc;">
+	    <h2>Column 3</h2>
+	    <p>Some text..</p>
+	  </div>
+	  <div class="column" style="background-color:#ddd;">
+	    <h2>Column 4</h2>
+	    <p>Some text..</p>
+	  </div>
+	</div>
+		
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type='text/javascript'>
+		// OPENING LIST AND GRID VIEW 
+		var elements = document.getElementsByClassName('column');
+		var i;
+		// List View
+		function mylist() {
+		    for (i = 0; i < elements.length; i++) {
+		        elements[i].style.width = "100%";
+		    }
+		}
+
+		// Grid View
+		function mygrid() {
+		    for (i = 0; i < elements.length; i++) {
+		        elements[i].style.width = "50%";
+		    }
+		}
+		// CLOSING LIST AND GRID VIEW 
+
+		$(document).ready(function(){
+			$('.list_item > li > a').click(function(){
+				$('.list_item > li > a').removeClass('active');
+				$(this).addClass('active');
+			});
+		});
+	</script>
+</body>
+</html>
